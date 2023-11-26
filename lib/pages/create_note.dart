@@ -1,8 +1,8 @@
 
 import 'package:cmms/SQlite/sqlite.dart';
 import 'package:cmms/authentication/adminpage.dart';
-import 'package:cmms/jsonmodels/note_model.dart';
-import 'package:cmms/view/notes.dart';
+import 'package:cmms/jsonmodels/eventmodel.dart';
+
 import 'package:flutter/material.dart';
 
 class CreateNote extends StatefulWidget {
@@ -57,6 +57,7 @@ class _CreateNoteState extends State<CreateNote> {
             
             children: [
               TextFormField(
+                maxLines: null,
                 controller: title,
                 validator: (value){
                   if (value!.isEmpty){
@@ -70,6 +71,7 @@ class _CreateNoteState extends State<CreateNote> {
                 ),
               ),
               TextFormField(
+                maxLines: 1,
                 controller: content,
                 validator: (value){
                   if (value!.isEmpty){

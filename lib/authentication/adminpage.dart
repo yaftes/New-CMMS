@@ -4,7 +4,7 @@ import 'package:cmms/authentication/userspages/addmembers.dart';
 import 'package:cmms/authentication/userspages/calendar.dart';
 
 import 'package:cmms/authentication/userspages/profile.dart';
-import 'package:cmms/view/notes.dart';
+import 'package:cmms/view/adminevent.dart';
 
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';

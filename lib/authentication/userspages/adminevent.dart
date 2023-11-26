@@ -1,12 +1,12 @@
 
 
 import 'package:cmms/SQlite/sqlite.dart';
-import 'package:cmms/jsonmodels/note_model.dart';
+import 'package:cmms/jsonmodels/eventmodel.dart';
 import 'package:cmms/pages/create_note.dart';
 
 
 import 'package:flutter/material.dart';
-import 'package:sqflite/sqflite.dart';
+
 
 class Adminevent extends StatefulWidget {
   const Adminevent({super.key});

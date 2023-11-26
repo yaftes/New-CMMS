@@ -2,7 +2,7 @@ import 'package:cmms/SQlite/sqlite.dart';
 import 'package:cmms/authentication/userspage.dart';
 import 'package:cmms/authentication/adminpage.dart';
 
-import 'package:cmms/authentication/signup.dart';
+
 import 'package:cmms/jsonmodels/users.dart';
 import 'package:flutter/material.dart';
 
@@ -28,7 +28,7 @@ class _LoginScreenState extends State<LoginScreen> {
    var response = 
    await db.login(Users(usrName:username.text, usrPassword: password.text));
    
-  if(username.text == "admin" && password.text == "12345"){
+  if(username.text == "admin" && password.text == "12345678"){
              Navigator.push(context, MaterialPageRoute(builder: (context) => Adminpage()));
   }
 
@@ -148,26 +148,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       color: Colors.white
                     ),) )),
                     SizedBox(height: 25,),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text("Don't have an account?",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 15
-                        ),),
-                       TextButton(onPressed: () {
-                        //navigate to signup
-                        Navigator.push(context, MaterialPageRoute(builder:(context)=>const Signup()));
-        
-                       }, child: Text("sign up",
-                       style: TextStyle(
-                        color:  Color(0xFFFF914d),
-                        fontSize: 22
-                       ),) )
-              
-                      ],
-                    ),
+                    
                    isLoginTrue? Text("username or password is incorret!",style: TextStyle(
                     color: Colors.red
                    ),):SizedBox(),

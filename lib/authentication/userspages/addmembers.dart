@@ -30,7 +30,7 @@ class _AddmembersState extends State<Addmembers> {
         centerTitle: true,
         leading:  IconButton(onPressed: (){
               Navigator.push(context, MaterialPageRoute(builder:(context)=>const LoginScreen()));
-            }, icon: Icon(Icons.logout_rounded,size: 20,)),
+            }, icon: Icon(Icons.logout_rounded,size: 30,)),
       ),
       body: Center(
         child: SingleChildScrollView(
@@ -38,7 +38,7 @@ class _AddmembersState extends State<Addmembers> {
             key: formkey,
             child: Column(
               
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -46,9 +46,11 @@ class _AddmembersState extends State<Addmembers> {
                     Container(
                       height: 240,
                       width: 240,
-                      child: Center(child: Text("Add New Members",style: TextStyle(
-                        fontSize: 45,
+                      child: Center(child: Text("Add New Member",style: TextStyle(
+                        fontSize: 50,
                         fontWeight: FontWeight.bold,
+                        letterSpacing: 1.8
+                        
                       ),)),
                     ),
                     SizedBox(width: 20,),
@@ -56,7 +58,7 @@ class _AddmembersState extends State<Addmembers> {
                     )
                   ],
                 ),
-                SizedBox(height: 25,),
+                
                   Container(
                     margin: EdgeInsets.fromLTRB(25, 0, 25, 0),
                     padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 8),

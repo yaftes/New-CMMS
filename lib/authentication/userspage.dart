@@ -4,7 +4,8 @@ import 'package:cmms/authentication/userspages/calendar.dart';
 
 import 'package:cmms/authentication/userspages/events.dart';
 import 'package:cmms/authentication/userspages/profile.dart';
-import 'package:cmms/view/notes.dart';
+
+
 
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +26,7 @@ class _UserpageState extends State<Userpage> {
     
     Calendar(),
 
-    Profile(),
+    Profile()
     
 
   ];

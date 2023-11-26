@@ -2,11 +2,11 @@
 import 'package:cmms/SQlite/sqlite.dart';
 
 
-import 'package:cmms/jsonmodels/note_model.dart';
+import 'package:cmms/jsonmodels/eventmodel.dart';
 import 'package:cmms/pages/create_note.dart';
-import 'package:flutter/foundation.dart';
+
 import 'package:flutter/material.dart';
-import 'package:sqflite/sqflite.dart';
+
 
 
 class Notes extends StatefulWidget {
@@ -78,9 +78,10 @@ class _NotesState extends State<Notes> {
                 return CircularProgressIndicator();
               }
               else if(snapshot.hasData && snapshot.data!.isEmpty){
-                return Center(child: Text("NO EVENT IS AVAILABLE",
+                return Center(child: Text(" CREATE NEW EVENTS HERE",
                 style: TextStyle(
-                  color: Colors.orange[200]
+                  color: Colors.orange[200],
+                  fontSize: 20
                 ),));
               }
               else if(snapshot.hasError){
@@ -105,7 +106,7 @@ class _NotesState extends State<Notes> {
                               width: 407,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(30),
-                                color: Colors.black,
+                                color: Color.fromARGB(255, 75, 70, 70),
                               ),
                             ),
                           Container(
@@ -114,7 +115,7 @@ class _NotesState extends State<Notes> {
                             width: 412,
                             decoration: BoxDecoration(
                               
-                              color: Color(0xFFFF914d),
+                              color: Color.fromARGB(255, 203, 132, 88),
                               borderRadius: BorderRadius.circular(30),
                              
                             ),
@@ -123,7 +124,7 @@ class _NotesState extends State<Notes> {
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 Center(child: Text(items[index].noteTitle)),
-                                Icon(Icons.edit,size: 25,color: Colors.white)
+                                
                               ],
                             )),
                            
@@ -131,12 +132,20 @@ class _NotesState extends State<Notes> {
                       ) ,
 
 
-                      trailing: IconButton(onPressed: (){
-                        db.deleteNote(items[index].noteId!).whenComplete(() {
-                            _refresh();
-                        });
-                      
-                      }, icon: Icon(Icons.delete,color: Colors.redAccent,)),
+                      trailing: Column(
+                       
+                        children: [
+                          IconButton(onPressed: (){
+                            db.deleteNote(items[index].noteId!).whenComplete(() {
+                                _refresh();
+                            });
+                          
+                          }, icon: Icon(Icons.delete,color: const Color.fromARGB(255, 229, 88, 88),size: 40,)),
+                       
+
+                          
+                        ],
+                      ),
 
 
 
@@ -179,6 +188,7 @@ class _NotesState extends State<Notes> {
                                 )
                               ],
                               title: Text("Update Event",style: TextStyle(
+                                
                                 fontWeight: FontWeight.bold,
                                 color: Color(0xFFFF914d)
                               ),),
@@ -186,19 +196,21 @@ class _NotesState extends State<Notes> {
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
                                 TextFormField(
-                controller: title,
-                validator: (value){
-                  if (value!.isEmpty){
-                    return "title is required";
-                   
-                  }
-                   return null;
-                },
-                decoration: InputDecoration(
-                  label: Text("Event")
-                ),
-              ),
+                                  maxLines: null,
+                                                controller: title,
+                                                validator: (value){
+                                                  if (value!.isEmpty){
+                                                    return "title is required";
+                                                   
+                                                  }
+                                                   return null;
+                                                },
+                                                decoration: InputDecoration(
+                                                  label: Text("Event")
+                                                ),
+                                              ),
               TextFormField(
+                maxLines: null,
                 controller: content,
                 validator: (value){
                   if (value!.isEmpty){

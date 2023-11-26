@@ -1,10 +1,9 @@
 
 import 'package:cmms/SQlite/sqlite.dart';
-import 'package:cmms/jsonmodels/note_model.dart';
-import 'package:cmms/pages/create_note.dart';
-import 'package:flutter/foundation.dart';
+import 'package:cmms/jsonmodels/eventmodel.dart';
+
 import 'package:flutter/material.dart';
-import 'package:sqflite/sqflite.dart';
+
 
 class UserEvent extends StatefulWidget {
   const UserEvent({super.key});
@@ -33,7 +32,9 @@ late DatabaseHelper handler;
     return Scaffold(
       appBar: AppBar(
         leading: Icon(Icons.event_available),
-       title: Text("Events"),
+       title: Text("Events",style: TextStyle(
+        fontWeight: FontWeight.bold
+       ),),
        centerTitle: true,
        backgroundColor: Colors.orange[700],
       ),
@@ -45,7 +46,10 @@ late DatabaseHelper handler;
                 return CircularProgressIndicator();
               }
               else if(snapshot.hasData && snapshot.data!.isEmpty){
-                return Center(child: Text("no Data"));
+                return Center(child: Text("No event is available",style: TextStyle(
+                  color: Colors.amber,
+                  fontSize: 20
+                ),));
               }
               else if(snapshot.hasError){
                 return Text(snapshot.error.toString());

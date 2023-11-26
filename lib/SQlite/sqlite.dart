@@ -1,4 +1,4 @@
-import 'package:cmms/jsonmodels/note_model.dart';
+import 'package:cmms/jsonmodels/eventmodel.dart';
 import 'package:cmms/jsonmodels/users.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
@@ -68,7 +68,12 @@ class DatabaseHelper {
     return db.insert("users",user.toMap());
     
 }
-
+  
+Future<int> updatePass(username,userpassword,userId) async{
+    final Database db = await initDB();
+    return db.rawUpdate('update notes set usrName = ?, usrPassword = ? where usrId = ?',
+    [username,userpassword,userId]);
+  }
 
 }
 
